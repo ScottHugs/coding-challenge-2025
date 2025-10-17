@@ -40,3 +40,9 @@ a {
     color-scheme: dark;
   }
 }
+
+.api-image {
+  max-width: 100%;
+  height: 20vh;
+  border-radius: 8px;
+}
