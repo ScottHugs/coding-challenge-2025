@@ -21,7 +21,9 @@
   background-color: #ccc;
 }
 
-.link.link{
-  text-decoration: underline!important;
-  background-color: transparent;
+@media (max-width: 600px) {
+  .button {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
 }

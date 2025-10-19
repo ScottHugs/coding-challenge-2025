@@ -37,11 +37,15 @@
 
 @media (max-width: 600px) {
   .page {
-    padding: 32px;
-    padding-bottom: 80px;
+    padding: 1em;
+    padding-bottom: 3em;
   }
 
   .main {
     align-items: center;
+  }
+
+  .heading {
+    font-size: 2.25rem;
   }
 }
