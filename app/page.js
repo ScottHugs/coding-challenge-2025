@@ -1,7 +1,7 @@
 import ApiDisplay from "./components/ApiDisplay";
 import { fetchApiData } from "./lib/utils";
 import styles from "./page.module.css";
-import { Suspense } from 'react';
+import { Suspense} from 'react';
 
 
 import localFont from 'next/font/local';

@@ -2,39 +2,42 @@
 
 import { use, useState } from 'react';
 import styles from './ApiDisplay.module.css';
+import ImageControlButton from './ImageControlButton';
 
 import localFont from 'next/font/local';
 const buenosAiresBoldFont = localFont({ src: '../../public/fonts/buenos-aires-bold.ttf' });
 
 export default function ApiDisplay({ whippetImagesPromise }) {
 
-  const [currentIndex, setCurrentIndex] = useState(0);
   const whippetImages = use(whippetImagesPromise) // Suspense in main handles loading state.
-  const numberOfImages = whippetImages.message.length;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const numberOfImages = whippetImages.message?.length || 0;
+
+  // Add early return if no images
+  if (numberOfImages === 0) {
+    return <div>No images available</div>;
+  }
+
+
+  // Handlers for image control buttons.
+  const nextImage = () => {
+    setCurrentIndex((numberOfImages + currentIndex + 1) % numberOfImages); // Logic for continuous looping of images.
+  }
+  const previousImage = () => {
+    setCurrentIndex((numberOfImages + currentIndex - 1) % numberOfImages); // Logic for continuous looping of images.
+  }
+
 
   return (
     <section>
 
       <div className="api-display">
-        <img src={whippetImages.message[currentIndex]} className={styles.image} />
+        <img src={whippetImages.message[currentIndex]} className={styles.image} alt={`Whippet ${currentIndex + 1} of ${numberOfImages}`}/>
       </div>
 
       <div className={styles.buttonContainer}>
-
-        <button
-          className={`${styles.button} ${buenosAiresBoldFont.className}`}
-          onClick={() => setCurrentIndex((numberOfImages + currentIndex - 1) % numberOfImages)} // Logic for continuous looping of images.
-        >
-          Previous
-        </button>
-        
-        <button
-          className={`${styles.button} ${buenosAiresBoldFont.className}`}
-          onClick={() => setCurrentIndex((numberOfImages + currentIndex + 1) % numberOfImages)} // Logic for continuous looping of images.
-        >
-          Next
-        </button>
-        
+        <ImageControlButton buttonText="Previous" onClick={previousImage}/>
+        <ImageControlButton buttonText="Next" onClick={nextImage}/>
       </div>
 
     </section>

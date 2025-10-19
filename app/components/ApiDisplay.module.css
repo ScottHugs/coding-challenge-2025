@@ -6,28 +6,9 @@
   margin: 2rem auto;
 }
 
-.button {
-  flex: 1;
-  color: var(--primaryGreen);
-  background-color: var(--accentGreen);
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 16px 32px;
-  border: none;
-  border-radius: 100px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-
-} 
-
-.button:hover {
-  cursor: pointer;
-  background-color: var(--buttonHoverGreen);
-}
-
 .image {
-  width: 40vw;
-  height: 35vh;
+  width: 35vw;
+  height: 40vh;
   object-fit: cover;
   border-radius: 8px;
 }
