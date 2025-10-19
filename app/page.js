@@ -16,7 +16,7 @@ export default function Home() {
       <main className={styles.main}>
 
         <h1 className={`${styles.heading} ${fakeGrenetteProFont.className}`}>
-            Think of everything you could do with nib Pet Insurance... for your whippet.
+            Think of everything you could do with Pet Insurance... for your whippet.
         </h1>
 
         <p className={styles.comment}>
