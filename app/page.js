@@ -16,11 +16,11 @@ export default function Home() {
       <main className={styles.main}>
 
         <h1 className={`${styles.heading} ${fakeGrenetteProFont.className}`}>
-            Think of everything you could do with nib pet insurance... for your whippet.
+            Think of everything you could do with nib Pet Insurance... for your whippet.
         </h1>
 
         <p className={styles.comment}>
-            We don't even do pet insurance, but for you, wheel whippet something up. See some of our most recent, fur-members enjoying their cover.
+            We don't even do pet insurance, but for you, we'll whippet something up. See some of our most recent, fur-members enjoying their cover.
         </p>
 
         <Suspense fallback={<div>Loading...</div>}>

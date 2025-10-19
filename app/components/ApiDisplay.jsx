@@ -21,23 +21,32 @@ export default function ApiDisplay({ whippetImagesPromise }) {
 
   // Handlers for image control buttons.
   const nextImage = () => {
-    setCurrentIndex((numberOfImages + currentIndex + 1) % numberOfImages); // Logic for continuous looping of images.
+    setCurrentIndex(currentIndex + 1);
   }
   const previousImage = () => {
-    setCurrentIndex((numberOfImages + currentIndex - 1) % numberOfImages); // Logic for continuous looping of images.
+    setCurrentIndex(currentIndex - 1);
+  }
+
+   const startImage = () => {
+    setCurrentIndex(0);
+  }
+   const lastImage = () => {
+    setCurrentIndex(numberOfImages - 1); 
   }
 
 
   return (
-    <section>
+    <section className={styles.apiDisplaySection}>
 
       <div className="api-display">
         <img src={whippetImages.message[currentIndex]} className={styles.image} alt={`Whippet ${currentIndex + 1} of ${numberOfImages}`}/>
       </div>
 
       <div className={styles.buttonContainer}>
-        <ImageControlButton buttonText="Previous" onClick={previousImage}/>
-        <ImageControlButton buttonText="Next" onClick={nextImage}/>
+        <ImageControlButton buttonText="Start" onClick={startImage} />
+        <ImageControlButton buttonText="Previous" onClick={previousImage} disabled={currentIndex === 0}/>
+        <ImageControlButton buttonText="Next" onClick={nextImage} disabled={currentIndex === (numberOfImages - 1)}/>
+        <ImageControlButton buttonText="Last" onClick={lastImage}/>
       </div>
 
     </section>
