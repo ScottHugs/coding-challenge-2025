@@ -12,3 +12,14 @@
   object-fit: cover;
   border-radius: 8px;
 }
+
+@media (max-width: 600px) {
+  .buttonContainer {
+        gap: 1rem;
+  }
+
+  .image {
+    width: 75vw;
+    height: 30vh;
+  }
+}
